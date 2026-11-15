@@ -1,0 +1,434 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+
+<title>Jay Cyrill Sobremonte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column of full-width sections. Hero pairs the pitch with a lead-pipeline card
+   (the thing this developer actually builds), then services, the visitor-to-revenue flow,
+   live sites, experience, contact. */
+:root {
+  --bg: #F3F6FB;
+  --surface: #FFFFFF;
+  --ink: #0C1A2E;
+  --muted: #53617A;
+  --line: #D6DEEB;
+  --accent: #1B4FD8;
+  --accent-ink: #FFFFFF;
+  --soft: #E4ECFC;
+  --win: #0E8A4E;
+  --win-soft: #DDF3E8;
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A111F; --surface: #111B2F; --ink: #E7EDF8; --muted: #93A1BD; --line: #23314D;
+    --accent: #6C9CFF; --accent-ink: #0A111F; --soft: #15264B; --win: #3FD58B; --win-soft: #11332A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A111F; --surface: #111B2F; --ink: #E7EDF8; --muted: #93A1BD; --line: #23314D;
+  --accent: #6C9CFF; --accent-ink: #0A111F; --soft: #15264B; --win: #3FD58B; --win-soft: #11332A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.02em; line-height: 1.08; }
+p { margin: 0; }
+.mono { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* profile photo */
+.brand img { width: 46px; height: 46px; flex: none; display: block; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 2px solid var(--line); background: var(--soft); }
+.brand .mark { flex: none; }
+
+/* header */
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.mark { width: 38px; height: 38px; border-radius: 10px; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; }
+.brand b { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; }
+nav.links { display: flex; gap: 22px; flex-wrap: wrap; font-size: 0.92rem; }
+nav.links a { text-decoration: none; color: var(--muted); }
+nav.links a:hover { color: var(--ink); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: var(--font-body); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--ink); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; padding-block: 56px 72px; }
+.hero > * { min-width: 0; }
+.hero h1 { font-size: clamp(2.5rem, 6.2vw, 4.4rem); font-weight: 700; margin-top: 18px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.lede { margin-top: 22px; font-size: 1.12rem; color: var(--muted); max-width: 56ch; }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 42px; padding-top: 24px; border-top: 1px solid var(--line); }
+.facts b { display: block; font-family: var(--font-display); font-size: 2rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.facts span { display: block; margin-top: 8px; font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
+
+/* pipeline card */
+.pipe { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: 0 18px 40px -26px rgba(12, 26, 46, 0.35); }
+.pipe-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
+.stages { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.stage { display: grid; grid-template-columns: 22px 1fr; gap: 14px; position: relative; padding-bottom: 20px; }
+.stage:last-child { padding-bottom: 0; }
+.stage::before { content: ""; position: absolute; left: 10px; top: 22px; bottom: -2px; width: 2px; background: var(--line); }
+.stage:last-child::before { display: none; }
+.dot { width: 22px; height: 22px; border-radius: 50%; background: var(--soft); border: 2px solid var(--accent); position: relative; z-index: 1; }
+.stage.won .dot { background: var(--win); border-color: var(--win); }
+.stage h3 { font-size: 1rem; letter-spacing: 0; font-weight: 600; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.stage p { font-size: 0.88rem; color: var(--muted); margin-top: 3px; }
+.tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; background: var(--soft); color: var(--accent); }
+.stage.won .tag { background: var(--win-soft); color: var(--win); }
+.pipe-note { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 0.8rem; color: var(--muted); }
+
+/* sections */
+section { padding-block: 72px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 14px; max-width: 62ch; margin-bottom: 40px; }
+.sec-head h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 700; }
+.sec-head p { color: var(--muted); font-size: 1.05rem; }
+
+/* services */
+.services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 44px 56px; }
+.service { border-top: 2px solid var(--ink); padding-top: 18px; min-width: 0; }
+.service h3 { font-size: 1.4rem; font-weight: 700; }
+.service p { margin-top: 10px; color: var(--muted); max-width: 52ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.chips li { font-size: 0.8rem; padding: 4px 11px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); }
+
+/* flow */
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; counter-reset: step; }
+.flow li { padding: 0 20px 0 0; position: relative; min-width: 0; }
+.flow li::before { counter-increment: step; content: counter(step); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 500; position: relative; z-index: 1; }
+.flow li::after { content: ""; position: absolute; top: 16px; left: 40px; right: 6px; height: 2px; background: var(--line); }
+.flow li:last-child::after { display: none; }
+.flow li:last-child::before { background: var(--win); }
+.flow h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; margin-top: 16px; }
+.flow p { margin-top: 6px; font-size: 0.9rem; color: var(--muted); }
+
+/* work */
+.sites { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.site { display: flex; flex-direction: column; gap: 6px; padding: 18px 18px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); text-decoration: none; min-width: 0; transition: border-color .15s, transform .15s; }
+.site:hover { border-color: var(--accent); transform: translateY(-2px); }
+.site .name { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.01em; }
+.site .url { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); overflow-wrap: anywhere; }
+.site .go { margin-top: 10px; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+.site.feature { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.site.feature .url, .site.feature .mono { color: color-mix(in srgb, var(--bg) 70%, transparent); }
+.site.feature .go { color: var(--bg); margin-top: 0; }
+.site.feature:hover { border-color: var(--accent); }
+
+/* ai apps */
+.apps { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.app { padding: 22px 22px 20px; gap: 8px; }
+.app .name { font-size: 1.5rem; }
+.app p { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+.app .go { margin-top: 14px; }
+
+/* experience */
+.xp { list-style: none; margin: 0; padding: 0; }
+.xp li { display: grid; grid-template-columns: 150px 1fr; gap: 12px 32px; padding-block: 24px; border-top: 1px solid var(--line); }
+.xp li:last-child { border-bottom: 1px solid var(--line); }
+.xp .yr { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 4px; }
+.xp h3 { font-size: 1.25rem; font-weight: 700; }
+.xp h3 span { font-family: var(--font-body); font-weight: 500; font-size: 1rem; color: var(--muted); letter-spacing: 0; }
+.xp p { margin-top: 8px; color: var(--muted); max-width: 64ch; }
+.xp > li > div { min-width: 0; }
+
+.kit { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 56px; margin-top: 56px; }
+.kit h3 { font-size: 0.95rem; letter-spacing: 0; margin-bottom: 10px; font-weight: 600; }
+.kit > div { min-width: 0; }
+
+/* contact */
+.contact { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 56px; align-items: start; }
+.contact > * { min-width: 0; }
+.contact h2 { font-size: clamp(2rem, 4.6vw, 3.3rem); font-weight: 700; }
+.contact .lede { margin-top: 18px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: grid; gap: 18px; }
+.card dl { margin: 0; display: grid; gap: 14px; }
+.card dt { margin-bottom: 3px; }
+.card dd { margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.copyrow { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.copy { font: inherit; font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+
+footer { padding-block: 28px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); }
+
+@media (max-width: 920px) {
+  .hero, .contact { grid-template-columns: 1fr; gap: 40px; }
+  .flow { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .flow li::after { display: none; }
+}
+@media (max-width: 640px) {
+  .services, .kit { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  .xp li { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .facts b { font-size: 1.6rem; }
+  section { padding-block: 56px; }
+  .hero { padding-block: 32px 56px; }
+}
+@media (prefers-reduced-motion: reduce) { .site { transition: none; } .site:hover { transform: none; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" aria-label="Jay Cyrill Sobremonte, home">
+      <img src="profile.jpg" alt="Jay Cyrill Sobremonte" width="46" height="46" onerror="this.outerHTML='<span class=&quot;mark&quot;>JS</span>'">
+      <b>Jay Cyrill Sobremonte</b>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#work">Live sites</a>
+      <a href="#ai">AI apps</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <p class="mono">WordPress · GoHighLevel · Custom development</p>
+        <h1>Websites that turn visitors into <em>booked calls.</em></h1>
+        <p class="lede">I'm Jay Cyrill, a WordPress developer and GoHighLevel specialist. I build the site, connect the CRM and automate the follow-up, so every inquiry gets a reply and a place in your pipeline instead of getting lost.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://wa.me/639128563077" target="_blank" rel="noopener">Message me on WhatsApp</a>
+          <a class="btn ghost" href="#contact">See contact details</a>
+        </div>
+        <div class="facts">
+          <div><b>5+</b><span>years building and tuning WordPress sites</span></div>
+          <div><b>13</b><span>live client sites listed below</span></div>
+          <div><b>1</b><span>developer for site, CRM and SEO</span></div>
+        </div>
+      </div>
+
+      <aside class="pipe" aria-label="Example lead pipeline">
+        <div class="pipe-head">
+          <span class="mono">Lead pipeline</span>
+          <span class="tag">Example</span>
+        </div>
+        <ol class="stages">
+          <li class="stage"><span class="dot"></span><div><h3>New lead</h3><p>Someone fills in the form on a landing page.</p></div></li>
+          <li class="stage"><span class="dot"></span><div><h3>Contacted</h3><p>An automatic SMS and email go out right away.</p></div></li>
+          <li class="stage"><span class="dot"></span><div><h3>Call booked</h3><p>They pick a time on your calendar. Reminders are automatic.</p></div></li>
+          <li class="stage won"><span class="dot"></span><div><h3>Won <span class="tag">Revenue</span></h3><p>The deal is tracked in the CRM, start to finish.</p></div></li>
+        </ol>
+        <p class="pipe-note">This is the kind of GoHighLevel pipeline I set up for clients.</p>
+      </aside>
+    </div>
+
+    <section id="services">
+      <div class="sec-head">
+        <p class="mono">What I do</p>
+        <h2>Four things that bring in revenue</h2>
+        <p>Pick one, or hire me for all four and get a site that is fast, easy to find and connected to your sales process.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <h3>Lead-generating websites</h3>
+          <p>Fast, mobile-first pages with a clear offer and forms that feed your pipeline. Built in whichever builder suits your team.</p>
+          <ul class="chips"><li>WordPress</li><li>Elementor</li><li>Divi</li><li>Bricks Builder</li><li>Gutenberg</li><li>Avada</li></ul>
+        </article>
+        <article class="service">
+          <h3>CRM and follow-up automation</h3>
+          <p>GoHighLevel funnels, pipelines, calendars and workflows, with SMS and email sequences that reach every new lead without anyone typing them out.</p>
+          <ul class="chips"><li>Funnels</li><li>Pipelines</li><li>Workflows</li><li>Forms and surveys</li><li>Email and SMS</li><li>Webhooks</li><li>FluentCRM</li></ul>
+        </article>
+        <article class="service">
+          <h3>Online stores and custom builds</h3>
+          <p>WooCommerce checkout and payment setups, custom themes and plugins, and Laravel, React or Supabase apps when WordPress is not enough.</p>
+          <ul class="chips"><li>WooCommerce</li><li>Custom plugins</li><li>REST APIs</li><li>Laravel</li><li>React</li><li>Supabase</li></ul>
+        </article>
+        <article class="service">
+          <h3>Speed and search visibility</h3>
+          <p>Core Web Vitals, PageSpeed and on-page SEO, so the site loads quickly and shows up when your customers search.</p>
+          <ul class="chips"><li>Rank Math</li><li>Yoast</li><li>Schema markup</li><li>Lighthouse</li><li>Migrations and backups</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="sec-head">
+        <p class="mono">How a visitor becomes revenue</p>
+        <h2>Most sites stop at the design. I build every step after it.</h2>
+        <p>Each step is set up and tested before launch, so nothing depends on someone remembering to follow up.</p>
+      </div>
+      <ol class="flow">
+        <li><h3>Visitor lands</h3><p>A fast page with a clear offer, tuned for mobile and search.</p></li>
+        <li><h3>Lead captured</h3><p>A short form or booking widget collects the details.</p></li>
+        <li><h3>CRM updated</h3><p>The contact lands in the right GoHighLevel pipeline stage.</p></li>
+        <li><h3>Follow-up sent</h3><p>Triggers send SMS and email, and connect your other tools.</p></li>
+        <li><h3>Call booked</h3><p>The calendar fills and you can see what each lead is worth.</p></li>
+      </ol>
+    </section>
+
+    <section id="work">
+      <div class="sec-head">
+        <p class="mono">Live sites</p>
+        <h2>Work you can open right now</h2>
+        <p>Every site below is live. Click through and judge the speed, layout and forms yourself.</p>
+      </div>
+      <div class="sites">
+        <a class="site" href="https://degree43.com.au/" target="_blank" rel="noopener"><span class="mono">Client site · AU</span><span class="name">Degree 43</span><span class="url">degree43.com.au</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://kingdomofrapha.com/" target="_blank" rel="noopener"><span class="mono">Wellness · Lab testing</span><span class="name">Kingdom of Rapha</span><span class="url">kingdomofrapha.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://evergrowfinance.au/" target="_blank" rel="noopener"><span class="mono">Finance · AU</span><span class="name">Evergrow Finance</span><span class="url">evergrowfinance.au</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://www.onlinefencesupplies.com" target="_blank" rel="noopener"><span class="mono">Online store</span><span class="name">Online Fence Supplies</span><span class="url">onlinefencesupplies.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://www.euroflo.com/" target="_blank" rel="noopener"><span class="mono">Client site</span><span class="name">Euroflo</span><span class="url">euroflo.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://kingmasonryyard.com/" target="_blank" rel="noopener"><span class="mono">Masonry</span><span class="name">King Masonry Yard</span><span class="url">kingmasonryyard.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://ecofloorswa.com/" target="_blank" rel="noopener"><span class="mono">Flooring · WA</span><span class="name">Eco Floors WA</span><span class="url">ecofloorswa.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://www.takodaequine.com/" target="_blank" rel="noopener"><span class="mono">Equine</span><span class="name">Takoda Equine</span><span class="url">takodaequine.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://www.lionrockproperties.com/" target="_blank" rel="noopener"><span class="mono">Property</span><span class="name">Lion Rock Properties</span><span class="url">lionrockproperties.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://lastminutegolfing.com/" target="_blank" rel="noopener"><span class="mono">Golf</span><span class="name">Last Minute Golfing</span><span class="url">lastminutegolfing.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://uselitewine.com/" target="_blank" rel="noopener"><span class="mono">Online store · Winemaking</span><span class="name">US Elite Winery Supplies</span><span class="url">uselitewine.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://greenhealthmedicalinc.com/" target="_blank" rel="noopener"><span class="mono">Online store · Medical supplies</span><span class="name">Green Health Medical</span><span class="url">greenhealthmedicalinc.com</span><span class="go">Visit ↗</span></a>
+        <a class="site" href="https://go.titanroofingusa.com/" target="_blank" rel="noopener"><span class="mono">Lead funnel · Roofing</span><span class="name">Titan Roofing &amp; Exteriors</span><span class="url">go.titanroofingusa.com</span><span class="go">Visit ↗</span></a>
+      </div>
+    </section>
+
+    <section id="ai">
+      <div class="sec-head">
+        <p class="mono">AI-built apps</p>
+        <h2>Working apps I built with AI tools</h2>
+        <p>These are live products you can open and use. I build custom tools like these when a template site cannot do the job.</p>
+      </div>
+      <div class="apps">
+        <a class="site app" href="https://blockrush-arena.sandybear.chatgpt.site/" target="_blank" rel="noopener">
+          <span class="mono">Game · Multiplayer</span>
+          <span class="name">Blockrush Arena</span>
+          <p>A first-person voxel arena shooter that runs in the browser with no download. Fight a 10-level solo boss rush, or play co-op and 1v1 with friends.</p>
+          <span class="url">blockrush-arena.sandybear.chatgpt.site</span>
+          <span class="go">Play it ↗</span>
+        </a>
+        <a class="site app" href="https://tempo-team-time.sandybear.chatgpt.site/mobile" target="_blank" rel="noopener">
+          <span class="mono">Business tool · Mobile</span>
+          <span class="name">Team Time Portal</span>
+          <p>A mobile-friendly workspace where staff sign in to record their workday and see their time history, with a separate sign-in for managers.</p>
+          <span class="url">tempo-team-time.sandybear.chatgpt.site</span>
+          <span class="go">Open the app ↗</span>
+        </a>
+        <a class="site app" href="https://dlens-ai-v16-guest.vercel.app/" target="_blank" rel="noopener">
+          <span class="mono">AI development</span>
+          <span class="name">AI web app</span>
+          <p>A live AI web application, deployed on Vercel and open to try as a guest.</p>
+          <span class="url">dlens-ai-v16-guest.vercel.app</span>
+          <span class="go">Open the app ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sec-head">
+        <p class="mono">Experience</p>
+        <h2>Where I've done this work</h2>
+      </div>
+      <ol class="xp">
+        <li>
+          <span class="yr">2026</span>
+          <div><h3>WordPress Developer &amp; Designer <span>· MotoCoders</span></h3><p>Layouts and landing pages in WordPress and Elementor, custom plugins, GoHighLevel workflows and CRM integrations, WooCommerce setup and ongoing site maintenance.</p></div>
+        </li>
+        <li>
+          <span class="yr">2025</span>
+          <div><h3>Junior GHL Specialist <span>· TitanRoofing</span></h3><p>Websites, funnels, forms and lead capture in GoHighLevel, CRM pipelines for lead follow-up, campaign graphics and page speed and SEO.</p></div>
+        </li>
+        <li>
+          <span class="yr">2022 – 2024</span>
+          <div><h3>Junior Web Developer <span>· HolisticWeb Presence</span></h3><p>Built an AI research framework that scores companies such as Tesla, NVIDIA and Microsoft on long-term disruption, with 10-year reports and investor-friendly summaries.</p></div>
+        </li>
+        <li>
+          <span class="yr">2021 – 2022</span>
+          <div><h3>WordPress Developer <span>· Top OutMarketing</span></h3><p>Custom themes and plugins, WooCommerce stores, third-party API integrations, hosting, migrations and Core Web Vitals work.</p></div>
+        </li>
+      </ol>
+
+      <div class="kit">
+        <div>
+          <h3>Hosting and platforms</h3>
+          <ul class="chips"><li>cPanel</li><li>SiteGround</li><li>Hostinger</li><li>Cloudways</li><li>BlueHost</li><li>GitHub</li><li>Asana</li></ul>
+        </div>
+        <div>
+          <h3>Front end and code</h3>
+          <ul class="chips"><li>PHP</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Tailwind</li><li>MaterialUI</li><li>React</li><li>Laravel</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <div>
+          <p class="mono">Contact</p>
+          <h2 style="margin-top:14px">Find out where your website is losing leads.</h2>
+          <p class="lede">Send me your link and tell me what you want the site to do. I'll look at the page, the form and the follow-up, and tell you what I would fix first.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="https://wa.me/639128563077" target="_blank" rel="noopener">Message me on WhatsApp</a>
+            <a class="btn ghost" href="https://github.com/cyrill852456" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="card">
+          <dl>
+            <div>
+              <dt class="mono">Email</dt>
+              <dd class="copyrow"><span id="email-text">sobremontecyrillp@gmail.com</span><button class="copy" type="button" data-target="email-text">Copy</button></dd>
+            </div>
+            <div>
+              <dt class="mono">Phone and WhatsApp</dt>
+              <dd class="copyrow"><span id="phone-text">+63 912 856 3077</span><button class="copy" type="button" data-target="phone-text">Copy</button></dd>
+            </div>
+            <div>
+              <dt class="mono">Based in</dt>
+              <dd>Cagayan de Oro, Philippines. Working remotely with clients in other countries.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Jay Cyrill P. Sobremonte · WordPress Developer · Web Designer · GHL Specialist</span>
+    <span>Cagayan de Oro, Philippines</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent.trim();
+    function selectIt() {
+      try {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      } catch (e) {}
+    }
+    function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+    try {
+      navigator.clipboard.writeText(text).then(done, selectIt);
+    } catch (e) { selectIt(); }
+  });
+});
+</script>
+
+</body></html>
